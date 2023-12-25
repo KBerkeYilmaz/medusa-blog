@@ -9,7 +9,7 @@ const Navbar = () => {
 
   return (
     <nav className="w-screen h-24 flex justify-end bg-transparent fixed top-10 text-white">
-      <ul className="flex justify-center items-center w-full text-2xl">
+      <ul className="flex justify-end items-center w-full text-2xl">
         <li>
           <Link
             href="/"

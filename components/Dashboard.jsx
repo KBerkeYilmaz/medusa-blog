@@ -1,27 +1,32 @@
-"use client"
+"use client";
 
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
-import MenuIcon from '@mui/icons-material/Menu';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import { useState } from 'react';
+import * as React from "react";
+import PropTypes from "prop-types";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import Divider from "@mui/material/Divider";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import InboxIcon from "@mui/icons-material/MoveToInbox";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import MailIcon from "@mui/icons-material/Mail";
+import MenuIcon from "@mui/icons-material/Menu";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import HomeIcon from "@mui/icons-material/Home";
+import RssFeedIcon from "@mui/icons-material/RssFeed";
+import WysiwygIcon from "@mui/icons-material/Wysiwyg";
+import FilterBAndWIcon from "@mui/icons-material/FilterBAndW";
+import Link from "next/link";
 
 
 const drawerWidth = 240;
+const navTitles = ["Ana Sayfa", "Blog", "Galeri", "Akış"];
 
 function ResponsiveDrawer(props) {
   const { window } = props;
@@ -31,26 +36,46 @@ function ResponsiveDrawer(props) {
     setMobileOpen(!mobileOpen);
   };
 
+  const linkMap = [
+     `/`,
+    `/dashboard/posts`,
+    `/dashboard/gallery`,
+    `/dashboard/feed`,
+  ];
+
   const drawer = (
     <div>
       <Toolbar />
       <Divider />
       <List>
-        {['Ana Sayfa', 'Blog', 'Galeri', 'Akış'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
+        {["Ana Sayfa", "Blog", "Galeri", "Akış"].map((text, index) => (
+
+          <ListItem
+            key={text}
+            disablePadding
+            className="w-full"
+          >
+            <Link href={linkMap[index]}>
+              <ListItemButton>
+                <ListItemIcon>
+                  {index === 0 && <HomeIcon />}
+                  {index === 1 && <WysiwygIcon />}
+                  {index === 2 && <FilterBAndWIcon />}
+                  {index === 3 && <RssFeedIcon />}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItemButton>
+            </Link>
           </ListItem>
         ))}
       </List>
       <Divider />
       <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
+        {["All mail", "Trash", "Spam"].map((text, index) => (
+          <ListItem
+            key={text}
+            disablePadding
+          >
             <ListItemButton>
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
@@ -64,10 +89,11 @@ function ResponsiveDrawer(props) {
   );
 
   // Remove this const when copying and pasting into your project.
-  const container = window !== undefined ? () => window().document.body : undefined;
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar
         position="fixed"
@@ -82,12 +108,16 @@ function ResponsiveDrawer(props) {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+            sx={{ mr: 2, display: { sm: "none" } }}
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Responsive drawer
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+          >
+            Kullanıcı Paneli
           </Typography>
         </Toolbar>
       </AppBar>
@@ -106,8 +136,11 @@ function ResponsiveDrawer(props) {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            display: { xs: "block", sm: "none" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
           }}
         >
           {drawer}
@@ -115,8 +148,11 @@ function ResponsiveDrawer(props) {
         <Drawer
           variant="permanent"
           sx={{
-            display: { xs: 'none', sm: 'block' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            display: { xs: "none", sm: "block" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
           }}
           open
         >
@@ -125,7 +161,11 @@ function ResponsiveDrawer(props) {
       </Box>
       <Box
         component="main"
-        sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+        sx={{
+          flexGrow: 1,
+          p: 3,
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
+        }}
       >
         <Toolbar />
         {props.children}
@@ -133,6 +173,5 @@ function ResponsiveDrawer(props) {
     </Box>
   );
 }
-
 
 export default ResponsiveDrawer;

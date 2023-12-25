@@ -9,8 +9,6 @@ export const blogPosts = [
   { number: 4, title: "test3", article: "article article article article" },
 ];
 
-
-
 const Home = () => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center relative text-white bg-black -z-50">
@@ -44,12 +42,15 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="h-screen w-screen overflow-hidden">
-        <div className="flex flex-col items-center w-full h-full">
+
+      {/* BLOG POSTS */}
+
+      <section className="h-[50vh] w-screen overflow-hidden">
+        <div className="flex flex-col items-center w-full h-full px-[67px]">
           <div className="w-full flex items-center">
             <h1 className="text-4xl w-1/2">Blog Yazılarını Görüntüle</h1>
           </div>
-          <div className="grid grid-cols-2 gap-10 w-full h-full m-10">
+          <div className="grid grid-cols-4 gap-10 w-full h-full m-10">
             {blogPosts.map((item, index) => {
               return (
                 <div
@@ -65,8 +66,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+
       <section className="h-screen w-screen">
-      <div className="flex flex-col items-center w-full h-full">
+        <div className="flex flex-col items-center w-full h-full px-[67px]">
           <div className="w-full flex items-center">
             <h1 className="text-4xl w-1/2">Galeriyi Görüntüle</h1>
           </div>
@@ -77,10 +79,45 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="h-screen w-screen bg-yellow-400">
-        <h1>Akış</h1>
+      <section className="h-screen w-screen">
+        <div className="flex flex-col items-center justify-center w-full h-[50vh] px-[67px]">
+          <div className="lg:w-[1312px] h-[225px] flex items-center justify-evenly border-white border-[1px] lg:gap-[92px] rounded-[27px] lg:px-[56px] lg:py-[24px]">
+            <div className="flex flex-col items-center justify-start lg:w-[231px] lg:h-[123px]">
+              <h1 className="w-full flex justify-start">dummy</h1>
+              <h1 className="w-full flex justify-start">Ücretsiz Kargo</h1>{" "}
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus
+                quas{" "}
+              </p>{" "}
+            </div>
+            <div className="flex flex-col items-center justify-start lg:w-[231px] lg:h-[123px]">
+              <h1 className="w-full flex justify-start">dummy</h1>
+              <h1 className="w-full flex justify-start text-[24px]">İade Garantisi</h1>{" "}
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus
+                quas{" "}
+              </p>{" "}
+            </div>
+            <div className="flex flex-col items-center justify-start lg:w-[231px] lg:h-[123px]">
+              <h1 className="w-full flex justify-start">dummy</h1>
+              <h1 className="w-full flex justify-start">Sınırsız Destek</h1>{" "}
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus
+                quas{" "}
+              </p>{" "}
+            </div>
+            <div className="flex flex-col items-center justify-start lg:w-[231px] lg:h-[123px]">
+              <h1 className="w-full flex justify-start">dummy</h1>
+              <h1 className="w-full flex justify-start">Taksitli Ödeme</h1>{" "}
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus
+                quas{" "}
+              </p>{" "}
+            </div>
+          </div>
+        </div>
       </section>
-      <section className="h-screen w-screen bg-blue-400">
+      <section className="h-[50vh] w-screen bg-blue-400">
         <h1>İletişim</h1>
       </section>
     </div>
