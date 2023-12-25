@@ -1,5 +1,6 @@
 import Dashboard from "@components/Dashboard";
 import ServiceProvider from "@components/Provider";
+import "../../globals.css";
 
 export const metadata = {
   title: "Yönetici paneli",

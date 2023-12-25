@@ -18,7 +18,7 @@ export default function UserInfo() {
   };
 
   return (
-    <div className="place-items-center h-screen overflow-hidden">
+    <div className="flex flex-col justify-center items-centerh-screen overflow-hidden">
       <div className="shadow-lg p-8 flex flex-col gap-2 my-6">
         <div>
           Hoşgeldiniz <span className="font-bold">{session?.user?.name}</span>
@@ -28,7 +28,7 @@ export default function UserInfo() {
         </div>
         <button
           onClick={handleLogOut}
-          className="bg-red-500 text-white font-bold px-6 py-2 mt-3"
+          className="bg-red-400 text-white font-bold px-6 py-2 mt-3"
         >
           Log Out
         </button>

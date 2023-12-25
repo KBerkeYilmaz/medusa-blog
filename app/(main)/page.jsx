@@ -19,22 +19,22 @@ const Home = () => {
             src={"/Ellipse 171.svg"}
             width={172.22}
             height={172.22}
-            alt=" "
+            alt="güneş"
           />
         </div>
 
         <Image
-          className="w-[801px] h-[796px] absolute right-[67px] -top-[60px] z-10 bg-transparent"
+          className="w-[801px] h-[796px] absolute right-[67px] z-0 -top-[60px]"
           src={"/splash.svg"}
           width={801}
           height={796}
-          alt=" "
+          alt="galaksi"
         />
 
         <div className="h-full w-full flex justify-start items-center z-40 text-white">
           <div>
-            <h1>Geleceğe Bizimle Ulaş!</h1>
-            <p>
+            <h1 className="text-[4rem]">Geleceğe Bizimle Ulaş!</h1>
+            <p className="text-lg">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus
               imperdiet sed idt.
             </p>
@@ -83,7 +83,14 @@ const Home = () => {
         <div className="flex flex-col items-center justify-center w-full h-[50vh] px-[67px]">
           <div className="lg:w-[1312px] h-[225px] flex items-center justify-evenly border-white border-[1px] lg:gap-[92px] rounded-[27px] lg:px-[56px] lg:py-[24px]">
             <div className="flex flex-col items-center justify-start lg:w-[231px] lg:h-[123px]">
-              <h1 className="w-full flex justify-start">dummy</h1>
+              <div className="w-full flex justify-start py-2">
+                <Image
+                  src={"/Group.svg"}
+                  width={24}
+                  height={24}
+                  alt={"sparkle"}
+                />
+              </div>
               <h1 className="w-full flex justify-start">Ücretsiz Kargo</h1>{" "}
               <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus
@@ -91,15 +98,31 @@ const Home = () => {
               </p>{" "}
             </div>
             <div className="flex flex-col items-center justify-start lg:w-[231px] lg:h-[123px]">
-              <h1 className="w-full flex justify-start">dummy</h1>
-              <h1 className="w-full flex justify-start text-[24px]">İade Garantisi</h1>{" "}
+              <div className="w-full flex justify-start py-2">
+                <Image
+                  src={"/Group.svg"}
+                  width={24}
+                  height={24}
+                  alt={"sparkle"}
+                />
+              </div>
+              <h1 className="w-full flex justify-start text-[24px]">
+                İade Garantisi
+              </h1>{" "}
               <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus
                 quas{" "}
               </p>{" "}
             </div>
             <div className="flex flex-col items-center justify-start lg:w-[231px] lg:h-[123px]">
-              <h1 className="w-full flex justify-start">dummy</h1>
+              <div className="w-full flex justify-start py-2">
+                <Image
+                  src={"/Group.svg"}
+                  width={24}
+                  height={24}
+                  alt={"sparkle"}
+                />
+              </div>
               <h1 className="w-full flex justify-start">Sınırsız Destek</h1>{" "}
               <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus
@@ -107,7 +130,14 @@ const Home = () => {
               </p>{" "}
             </div>
             <div className="flex flex-col items-center justify-start lg:w-[231px] lg:h-[123px]">
-              <h1 className="w-full flex justify-start">dummy</h1>
+              <div className="w-full flex justify-start py-2">
+                <Image
+                  src={"/Group.svg"}
+                  width={24}
+                  height={24}
+                  alt={"sparkle"}
+                />
+              </div>
               <h1 className="w-full flex justify-start">Taksitli Ödeme</h1>{" "}
               <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus

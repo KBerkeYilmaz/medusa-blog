@@ -1,11 +1,11 @@
-import Post from "@models/prompt";
-import { connectToDB } from "@utils/database";
+import Post from "@models/post";
+import { connectToDB } from "@lib/db";
 
 export const GET = async (request) => {
     try {
         await connectToDB()
 
-        const posts = await Post.find({}).populate('creator')
+        const posts = await Post.find({})
 
         return new Response(JSON.stringify(posts), { status: 200 })
     } catch (error) {
