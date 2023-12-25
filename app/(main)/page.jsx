@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { NextPage } from "next";
 
 export const blogPosts = [
   { number: 1, title: "test", article: "article article article article" },
