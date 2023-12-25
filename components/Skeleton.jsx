@@ -89,11 +89,15 @@ export default function LoadingState({ fetchUrl }) {
 
   return (
     <div className="w-full min-h-screen h-fit grid lg:grid-cols-3 lg:mt-20 lg:mb-20 lg:px-[67px]">
-      {loading ? (
-        <Media loading={true} />
+      {/* {loading ? (
+        <Media loading={true}/>
       ) : (
         posts.map(post => <Media key={post._id} post={post} loading={false} />)
-      )}
+      )} */}
+
+      { posts.map(post => loading? (
+        <Media loading={true}/>
+      ) : (<Media key={post._id} post={post} loading={false} />))}
     </div>
   );
 }

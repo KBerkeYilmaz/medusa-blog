@@ -8,7 +8,7 @@ import { useSession } from "next-auth/react";
 
 
 export default async function Register() {
-  // const session = await getServerSession();
+  // const session = await getServerSession(authOptions);
   const { data: session, status } = useSession()
 
 
