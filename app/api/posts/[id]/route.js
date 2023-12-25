@@ -1,5 +1,5 @@
-import Post from "@models/prompt";
-import { connectToDB } from "@utils/db";
+import Post from "@models/post";
+import { connectToDB } from "@lib/db";
 
 export const GET = async (request, { params }) => {
     try {
