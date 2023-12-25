@@ -66,7 +66,7 @@ Media.propTypes = {
   loading: PropTypes.bool,
 };
 
-export default function LoadingState() {
+export default function LoadingState({ fetchUrl }) {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -74,7 +74,7 @@ export default function LoadingState() {
     const fetchPosts = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`/api/posts`);
+        const response = await fetch(fetchUrl);
         const data = await response.json();
         setPosts(data);
         setLoading(false);
@@ -85,7 +85,7 @@ export default function LoadingState() {
     };
 
     fetchPosts();
-  }, []);
+  }, [fetchUrl]);
 
   return (
     <div className="w-full min-h-screen h-fit grid lg:grid-cols-3 lg:mt-20 lg:mb-20 lg:px-[67px]">

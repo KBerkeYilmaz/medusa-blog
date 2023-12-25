@@ -22,7 +22,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import RssFeedIcon from "@mui/icons-material/RssFeed";
 import WysiwygIcon from "@mui/icons-material/Wysiwyg";
 import FilterBAndWIcon from "@mui/icons-material/FilterBAndW";
-// import Link from "next/link";
+import Link from "next/link";
 
 
 const drawerWidth = 240;
@@ -55,7 +55,7 @@ function ResponsiveDrawer(props) {
             disablePadding
             className="w-full"
           >
-            {/* <Link href={linkMap[index]}> */}
+            <Link href={linkMap[index]}>
               <ListItemButton>
                 <ListItemIcon>
                   {index === 0 && <HomeIcon />}
@@ -65,7 +65,7 @@ function ResponsiveDrawer(props) {
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
-            {/* </Link> */}
+            </Link>
           </ListItem>
         ))}
       </List>
