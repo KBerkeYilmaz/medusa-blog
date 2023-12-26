@@ -39,12 +39,13 @@ export const authOptions = {
       // store the user id from MongoDB to session
       const sessionUser = await User.findOne({ email: session.user.email });
       session.user.id = sessionUser._id.toString();
-
+      console.log(session)
       return session;
     },
   },
   session: {
     strategy: "jwt",
+    maxAge: 60*30, 
   },
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
