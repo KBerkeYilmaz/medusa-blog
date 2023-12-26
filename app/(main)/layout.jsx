@@ -1,4 +1,4 @@
-import { Bitter, Inter } from "next/font/google";
+import { Inter, Bitter } from "next/font/google";
 import Navbar from "@components/Navbar";
 import SessionProvider from "@components/Provider"
 import "../globals.css";

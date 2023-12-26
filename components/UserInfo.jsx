@@ -1,7 +1,6 @@
 "use client";
 
-import { signOut } from "next-auth/react";
-import { useSession } from "next-auth/react";
+import { signOut,useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 export default function UserInfo() {
@@ -13,8 +12,6 @@ export default function UserInfo() {
       redirect: false,
       callbackUrl: `${window.location.origin}/`,
     });
-    window.location.href = "/";
-
   };
 
   return (
@@ -26,6 +23,7 @@ export default function UserInfo() {
         <div>
           Email: <span className="font-bold">{session?.user?.email}</span>
         </div>
+        
         <button
           onClick={handleLogOut}
           className="bg-red-400 text-white font-bold px-6 py-2 mt-3"

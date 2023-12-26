@@ -1,30 +1,37 @@
+import CredentialsProvider from "next-auth/providers/credentials";
 import { connectToDB } from "@/lib/db";
 import User from "@/models/user";
 import NextAuth from "next-auth/next";
-import CredentialsProvider from "next-auth/providers/credentials";
+import { MongoDBAdapter } from "@auth/mongodb-adapter";
+import clientPromise from "@/lib/mongodb";
 import { verifyPassword } from "@lib/auth";
 
 export const authOptions = {
+  adapter: MongoDBAdapter(clientPromise),
   providers: [
     CredentialsProvider({
       name: "credentials",
-      credentials: {},
-
+      credentials: {
+        email: { label: "Email", type: "text" },
+        password: { label: "Password", type: "password" },
+      },
       async authorize(credentials) {
-        const { email, password } = credentials;
-
         try {
-          await connectToDB();
-          const user = await User.findOne({ email });
+          await connectToDB().catch((err) => {
+            throw new Error(err);
+          });
+          const user = await User.findOne({
+            email: credentials?.email,
+          }).select("+password");
 
           if (!user) {
-            return;
+            throw new Error("Invalid credentials");
           }
 
-          const passwordsMatch = await verifyPassword(password, user.password);
+          const passwordsMatch = await verifyPassword(credentials.password, user.password);
 
           if (!passwordsMatch) {
-            return;
+            throw new Error("Invalid Credentials!");
           }
 
           return user;
@@ -39,17 +46,22 @@ export const authOptions = {
       // store the user id from MongoDB to session
       const sessionUser = await User.findOne({ email: session.user.email });
       session.user.id = sessionUser._id.toString();
-      console.log(session)
       return session;
+    },
+    jwt: async ({ token, user }) => {
+      user && (token.user = user);
+      console.log(token)
+      return token;
     },
   },
   session: {
     strategy: "jwt",
-    maxAge: 60*30, 
+    maxAge: 30*60,
   },
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
-    signIn: "/",
+    signIn: "/login",
+    signUp: "/"
   },
 };
 
